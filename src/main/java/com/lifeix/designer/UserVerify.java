@@ -24,7 +24,7 @@ public class UserVerify {
         User user = (User) redisUtil.getObject(User.class,userId);
         if (user==null)throw new NotAuthorizedException("not found this user");
         Device online = user.getOnline();
-        if (online==null||!deviceId.equals(online.getDeviceId()))throw new NotAuthorizedException("this account login other deviceid");
+        if (online==null||online.getDeviceId()==null||!deviceId.equals(online.getDeviceId()))throw new NotAuthorizedException("this account login other deviceid");
         return user;
     }
 
