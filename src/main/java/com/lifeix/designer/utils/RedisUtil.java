@@ -51,6 +51,19 @@ public class RedisUtil {
             redisTemplate.delete(key);
         }
     }
+
+    public void removeObject(Class clazz,final String key){
+        String objKey = objKey(clazz,key);
+        if (exists(objKey)) {
+            redisTemplate.delete(key);
+        }
+    }
+
+    private static String objKey(Class clazz,final String key){
+        return clazz.getName()+SPACE+key;
+
+    }
+
     /**
      * 判断缓存中是否有对应的value
      *
@@ -80,7 +93,7 @@ public class RedisUtil {
      * @return
      */
     public Object getObject(Class clazz,final String key) {
-        String cacheKey = clazz.getName()+SPACE+key;
+        String cacheKey = objKey(clazz,key);
         Object result = null;
         ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
         result = operations.get(cacheKey);
@@ -114,7 +127,7 @@ public class RedisUtil {
      */
     public boolean setObject(Class clazz,final String key, Object value) {
         boolean result = false;
-        String cacheKey = clazz.getName()+SPACE+key;
+        String cacheKey = objKey(clazz,key);
         try {
             setCache(cacheKey,value);
             result = true;
