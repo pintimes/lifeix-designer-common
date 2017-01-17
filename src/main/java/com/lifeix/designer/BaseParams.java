@@ -20,6 +20,9 @@ public class BaseParams {
     @HeaderParam("User-Agent")
     private String userAgent;
 
+    @HeaderParam("x-custom-user-id")
+    private String sessUserId;
+
     @Context
     private Request request;
 
@@ -37,5 +40,9 @@ public class BaseParams {
 
     public String getDeviceToken() {
         return deviceToken;
+    }
+
+    public String getSessUserId() {
+        return sessUserId;
     }
 }
