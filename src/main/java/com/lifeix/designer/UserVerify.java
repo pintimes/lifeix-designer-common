@@ -31,7 +31,7 @@ public class UserVerify {
         if (user==null)throw new NotAuthorizedException("not found this user", Response.status(Response.Status.UNAUTHORIZED));
         Device online = user.getOnline();
         if (online==null||online.getDeviceId()==null||!deviceId.equals(online.getDeviceId())){
-            LOGGER.warn(" this account login other deviceid "+user);
+            LOGGER.warn(" this account login other deviceid "+deviceId +"==>"+user);
             throw new NotAuthorizedException("this account login other deviceid", Response.status(Response.Status.UNAUTHORIZED));
         }
         return user;
