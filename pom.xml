@@ -21,6 +21,7 @@
             <artifactId>javax.ws.rs-api</artifactId>
             <version>2.0.1</version>
         </dependency>
+
         <dependency>
             <groupId>com.lifeix.designer</groupId>
             <artifactId>lifeix-designer-model</artifactId>
