@@ -55,7 +55,7 @@ public class RedisUtil {
     public void removeObject(Class clazz,final String key){
         String objKey = objKey(clazz,key);
         if (exists(objKey)) {
-            redisTemplate.delete(key);
+            redisTemplate.delete(objKey);
         }
     }
 
