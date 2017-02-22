@@ -15,6 +15,8 @@ public class BaseParams {
     @QueryParam("deviceToken")
     private String deviceToken;
 
+    @QueryParam("version")
+    private String version;
 
     @HeaderParam("User-Agent")
     private String userAgent;
@@ -27,7 +29,6 @@ public class BaseParams {
 
     @QueryParam("lng")
     private Double lng;
-
 
     @Context
     private Request request;
@@ -50,5 +51,16 @@ public class BaseParams {
 
     public String getSessUserId() {
         return sessUserId;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+    public Double getLat() {
+        return lat;
+    }
+
+    public Double getLng() {
+        return lng;
     }
 }
